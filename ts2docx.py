@@ -1,8 +1,10 @@
-from docx import Document
-from docx.text import Paragraph
-from pyqtts import tsfile
 from os import path
 import argparse
+
+from docx import Document
+
+from pyqtts import tsfile
+
 
 parser = argparse.ArgumentParser(description='Create docx file from ts file')
 parser.add_argument('input', type=str, help='input ts file')
@@ -29,7 +31,11 @@ def main():
 
     print("Opening ts file: " + args.input)
     f = tsfile.tsfile()
-    f.load_file(args.input)
+    try:
+        f.load_file(args.input)
+    except Exception as err:
+        print("Unable to open " + args.input)
+        exit(-1)
 
     print("Preparing translations")
     num_translations = 0

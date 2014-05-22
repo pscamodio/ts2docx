@@ -5,6 +5,9 @@ Python script to convert to and from:
  - Qt Translation files (ts)
  - docx with tables
 
+Require:
+ - python-docx for handling docx files
+
 It consist of a pyqtts mini module that define, load and save ts file (xml)
 And then two scripts
 
